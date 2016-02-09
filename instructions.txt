@@ -1,0 +1,70 @@
+Instructions for PI/PI2 running Raspbian Jessie only (Wheezie instructions are different)
+
+Make sure you are up to date:
+> sudo apt-get update
+> sudo apt-get upgrade
+> sudo rpi-update
+> sudo reboot
+
+Plug in USB adapter:
+> lsusb
+You should see the following output
+< Bus 001 Device 00x: ID xxxx:xxxx Broadcom Corp.
+
+Install bluez and bluetooth manager:
+> sudo apt-get install bluetooth blueman bluez python-gobject python-gobject-2
+
+Turn on bluetooth:
+> sudo hciconfig hci0 up
+
+How to Pair Devices:
+> bluetoothctl
+> agent on
+> default-agent
+> scan on
+> devices
+You should see any devices that are found
+< Device XX:XX:XX:XX:XX:XX Bluetooth Wireless Keyboard
+Find mac address of device (XX:XX:XX:XX:XX:XX)
+> pair [MAC ADDRESS]
+> connect [MAC ADDRESS]
+
+Setup Bluetooth Speaker/Headphones:
+> sudo apt-get install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware
+> sudo apt-get install mplayer
+> mplayer -ao pulse [file.mp3]
+
+
+Setup Bluetooth serial port to communicate with Android phone
+Pair phone with pi
+Install blueterm app on andriod device (from google play store)
+Fix Bug
+ > sudo nano /etc/bluetooth/main.conf
+ go to bottom of file and add the following line of text: DisablePlugins = pnat
+ save and exit (Ctrl-O Ctrl-X)
+Setup Serial Port
+> sdptool add sp
+Listen for connections on serial port
+> sudo rfcomm listen hcio&
+You should see the following
+< Waiting for connection on channel 1
+Connect to pi from blueterm 
+  press three dot bottom on bottom right corner of blueterm app
+  select "Connect device"
+  choose paired raspberrypi from list
+Echo what is received to Rpi Terminal
+> cat /dev/rfcomm0
+Type something in bluterm app and you should see it echoed to your Rpi
+
+
+Make python Server and Android App:
+> sudo apt-get install python-bluez
+Fix bug
+> sudo /lib/systemd/system/bluetooth.service
+Change
+ExecStart=/usr/lib/bluetooth/bluetoothd
+To
+ExecStart=/usr/lib/bluetooth/bluetoothd --compat
+
+Run the Python RFCOMM Server Script
+> sudo python pi-rfcomm.py
