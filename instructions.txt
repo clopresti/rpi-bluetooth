@@ -2,11 +2,15 @@
 
 The following instructions show how to setup and use a USB Bluetooth adapter with the Raspberry Pi.
 Please note that these instructions only apply to the latest Raspbian Jessie distribution. 
-If you are using an older distribution (like Wheezy) some of the instructions will not work because the Bluetooth implementation and utilities have changed with the Jessie release. 
-A lot of the instructions I found online were relating to the older wheezy builds so it took some extra research to find the correct way to do things with Jessie. 
-There were also a few things I needed to do to work around some known issues/bugs relating to the RFCOMM (serial over Bluetooth) communication on the Pi. 
+If you are using an older distribution (like Wheezy) some of the instructions will not work because the Bluetooth 
+  implementation and utilities have changed with the Jessie release. 
+A lot of the instructions I found online were relating to the older wheezy builds so it took some extra research 
+  to find the correct way to do things with Jessie. 
+There were also a few things I needed to do to work around some known issues/bugs relating to the 
+  RFCOMM (serial over Bluetooth) communication on the Pi. 
 I have documented all this and hopefully I can save you some time if you are trying to do a similar things. 
-I tested this on a Raspberry Pi 2 using a USB Bluetooth 4.0 adapter with a Broadcom BCM20702 chip set but all this should work any version of the Raspberry Pi as long as you are running the latest Raspbian Jessie distribution.
+I tested this on a Raspberry Pi 2 using a USB Bluetooth 4.0 adapter with a Broadcom BCM20702 chip set but all this 
+  should work any version of the Raspberry Pi as long as you are running the latest Raspbian Jessie distribution.
 
 
 * First make sure your Pi is up to date:
@@ -89,6 +93,7 @@ You should see:
 Exit bluetoothctl:
 Enter:
 > quit
+
 
 * How to setup and use a Bluetooth speaker/headphones:
 Enter:
