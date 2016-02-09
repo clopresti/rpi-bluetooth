@@ -50,7 +50,8 @@ Enter:
 Enter:
 > bluetoothctl
 You should see a line similar to:
-Controller XX:XX:XX:XX:XX:XX raspberrypi [default] (raspberrypi is the default name you will see when pairing/connecting to the Pi from other devices)
+Controller XX:XX:XX:XX:XX:XX raspberrypi [default] 
+(raspberrypi is the default name you will see when pairing/connecting to the Pi from other devices)
 Enter:
 > agent on
 You should see:
