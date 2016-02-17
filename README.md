@@ -1,5 +1,4 @@
 # Using Bluetooth With The Raspberry Pi
----
 
 The following instructions show how to setup and use a USB Bluetooth adapter with the Raspberry Pi.
 Please note that these instructions only apply to the latest Raspbian Jessie distribution. 
@@ -11,8 +10,9 @@ I have documented all this and hopefully I can save you some time if you are try
 
 I am using a USB Bluetooth 4.0 adapter with a Broadcom BCM20702 chipset but there are many other supported Bluetooth adapters including those with CSR (Cambridge Silicon Radio) chipsets. I tested on a Raspberry Pi 2 but all this should work with any version of the Raspberry Pi as long as you are running the latest Raspbian Jessie distribution.
 
+**Video Tutorial:** https://www.amazon.com/review/RANPHRIBO5H6L/ref=cm_cr_rdp_perm
+
 ## Part 1. Setup
----
 
 **First make sure your Pi is up to date:**
 ```
@@ -53,7 +53,7 @@ If you do not see "UP RUNNING" enter the following to turn on Bluetooth:
 ```
 
 ## Part 2. Paring and Connecting Devices
----
+
 **Start the command line Bluetooth manager**
 ```
 > bluetoothctl
@@ -144,7 +144,7 @@ To exit the command line Bluetooth manager enter:
 ```
 
 ## Part 3. Setup and Use a Bluetooth Speaker/Headphones
----
+
 Install required pulseaudio and supporting packages
 ```
 > sudo apt-get install pulseaudio pulseaudio-module-bluetooth pavucontrol bluez-firmware
@@ -166,7 +166,7 @@ Your audio file will begin to stream
 **Make sure that you select your Bluetooth device as the current audio output device from the pulse audio GUI manager found unnder the Pi menu**
 
 ## Part 4. Test Bluetooth Serial Communication With Android Device
----
+
 ### A. Raspberry Pi Side
 First pair your Android phone from the Pi using the paring instructions in Part 2
 
@@ -214,7 +214,7 @@ To echo what you type in the BlueTerm app to the Pi Terminal Screen enter:
 Now you can type something in the bluterm app and you should see it echoed to your Pi screen
 
 ## Part 5. Custom Android Application to Control the Pi Over Bluetooth
----
+
 In this section we will write a Python script on the Pi side and a custom Android application to control the Pi using Bluetooth. In this simple case we will just be turning an LED on/off from the Android device but you can imagine adding a Z-Wave adapter to your Pi and controling your Home Automation lighing and other devices from your phone.
 
 ### A. Raspberry Pi Side
@@ -275,4 +275,4 @@ Press the "on"/"off" toggle button
 
 On the Pi side you should see "Received [on]" "Received [off]" messages as you toggle the button
 
-If you connected an LED to your Pi (described above) you will be able to toggle the LED on/off using your Android phone
+If you connected an LED to your Pi (described above) you will be able to toggle the LED on/off using your Android device
